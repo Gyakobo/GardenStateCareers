@@ -1,0 +1,131 @@
+#section_1 {
+    width: 90%;
+    float: right;
+    margin-bottom: 5rem;
+}
+
+#section_1_left {
+    width: 50%;
+    float: left;
+}
+
+#section_1_left h1 {
+    font-size: 4.4rem;
+    font-weight: 800;
+    line-height: 4.2rem;
+    padding: 1.5rem;
+    padding-left: 0;
+    width: 90%;
+    color: black;
+}
+
+#section_1_left p {
+    font-size: 1.5rem;
+    width: 80%;
+    color: gray;
+}
+
+#form {
+    padding: 1rem;
+    padding-left: 0;
+}
+
+input[type=email] {
+    width: 15rem;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=email]:hover {
+    border: 1px solid #cccccc74;
+}
+
+#submit_button {
+    background-color: #fc189d;
+    border: none;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 7px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#submit_button:hover {
+    background-color: #8618fc;
+}
+
+#submit_button:after {
+    background-color: #8618fc17;
+}
+
+#hype_bar {
+    padding-left: 2rem;
+    width: 36%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#hype_bar p {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+#hype_bar #stars {
+    transform: translateY(-0.21rem) translateX(-0.9rem) scale(115%);
+    /*transform: scale(115%);*/
+    height: 1rem;
+    color: rgb(255, 213, 0);
+}
+
+.vl {
+    height: 1.3rem;
+    border-left: 1px solid rgba(128, 128, 128, 0.514);
+}
+
+#my_div {
+    padding: 1rem;
+}
+
+#my_div img {
+    margin-right: 1rem;
+    float: left;
+    width: 6.1rem;
+    border-radius: 50%;
+    border: 3px solid #fc189d;
+}
+
+#my_div #quote {
+    color: black;
+    font-weight: 800;
+    font-size: 1.2rem;
+    left: 1rem;
+}
+
+#my_div #name {
+    font-size: 1.2rem;
+}
+
+#section_1_right {
+    float: right;
+    width: 50%;
+    padding-top: 14.5rem;
+    padding-bottom: 14.5rem;
+
+    background-image: url("../misc/pic1.jpeg");
+    background-size: cover;
+
+    border-radius: 25px 0 0 25px;
+}
+
+#background_stuff {
+    position: absolute;
+    transform: translateX(-4rem) translateY(-4rem);
+    z-index: -1;
+    opacity: 0.4;
+}
