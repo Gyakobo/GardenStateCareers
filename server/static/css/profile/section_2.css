@@ -11,7 +11,7 @@
 }
 
 #section_3 {
-    display: inline-block;
+    display: none;
     float: left;
     width: 35rem;
     padding-top: 1rem;
@@ -37,17 +37,24 @@
     font-size: 1.1rem;
 }
 
+#code {
+    padding: 0.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(202, 202, 202);
+    background: gray;
+    margin: 1rem;
+}
+
 #prob_input {
     width: 100%;
-    margin: 1rem;
-    margin: 0 1rem;
+    margin: 1rem 1rem 0 1rem;
     color: rgb(255, 71, 71);
     font-size: 1.2rem;
 }
 
 #prob_output {
     width: 100%;
-    margin: 1rem;
     margin: 0 1rem;
     color: rgb(0, 172, 23);
     font-size: 1.2rem;

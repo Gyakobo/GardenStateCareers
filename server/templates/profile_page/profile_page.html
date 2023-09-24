@@ -22,9 +22,9 @@
             </div>
 
             <div>
-                <h3>Andrew Gyakobo</h3>
+                <h3 id="user_name">Andrew Gyakobo</h3>
                 <br>
-                <p>Rank #14144</p>
+                <p>Rank #</p>
             </div>
         </div>
 
@@ -59,10 +59,10 @@
 
         <div id="main_section_2">
             <div class="progress-container">
+                <div class="progress-text">75</div>
                 <svg class="progress-circle">
                     <circle cx="75" cy="75" r="70">50%</circle>
                 </svg>
-                <!--<div class="progress-text">50%</div>-->
             </div>
 
             <div id="solved_problems">
@@ -118,7 +118,8 @@
         <div id="prob_input"></div>
         <div id="prob_output"></div>
 
-        <form action="" method="POST">
+        <form action="/run_leetcode_question" method="POST">
+            <textarea id="code" name="code"></textarea>
             <input type="submit" name="submit">
         </form>
 
@@ -132,6 +133,8 @@
     const get_leetcode_question = (event) => {
         //const select_element = event.target;
         const leetcode_question = event.target.value;
+
+        const section_3 = document.getElementById("section_3");
 
         const prob_heading = document.getElementById("prob_heading");
         const prob_desc = document.getElementById("prob_desc");
@@ -148,23 +151,21 @@
             leetcode: leetcode_question
         })
             .then((response) => {
+                section_3.style.setProperty("display", "inherit");
                 var leet = response.data.leetcode;
-                console.log(leet);
                 prob_heading.innerHTML = leet.name;
                 prob_desc.innerHTML = leet.description;
                 prob_example_1.innerHTML = leet.example[0];
                 prob_example_2.innerHTML = leet.example[1];
                 prob_example_3.innerHTML = leet.example[2];
 
-                input.innerHTML = "Given " + String(leet.parameters);
-                output.innerHTML = "Ans " + String(leet.answer);
+                input.innerHTML = "Given: " + String(leet.parameters);
+                output.innerHTML = "Ans: " + String(leet.answer);
             }, (error) => {
                 console.log("Error");
             });
 
     }
-
-
 </script>
 
 </html>

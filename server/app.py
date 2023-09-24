@@ -4,6 +4,10 @@ from flask_smorest import abort
 from db import stores, items, students, student, recruiter, recruiters
 from leetcode import leetcode
 import os
+import sys
+from io import StringIO
+
+
 
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 template_dir = os.path.join(template_dir, 'templates')
@@ -25,9 +29,21 @@ client_type = ""
 def main_page():
     return render_template("main/main.html") 
 
+@app.route("/run_leetcode_question", methods=["POST"])
+def run_leetcode_question():
+    if request.method == "POST":
+        code = request.form.get('code')
+
+        old_stdout = sys.stdout
+        redirected_output = sys.stdout = StringIO()
+        exec(code)
+        sys.stdout = old_stdout
+
+        # print(exec(code))
+        return jsonify({"ans": exec(redirected_output.getvalue())})
+
 @app.route("/get_leetcode_question", methods=["POST"])
 def get_leetcode_question():
-    print("Entered")
     if request.method == "POST":
         leet_name = request.get_json()["leetcode"]
         print(leetcode[leet_name])
