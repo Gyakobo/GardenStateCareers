@@ -1,0 +1,90 @@
+#section_2 {
+    display: inline-block;
+    width: 28rem;
+    /*height: 15rem;*/
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    border-radius: 25px;
+    background-color: #27272a;
+    margin-left: 1.4rem
+}
+
+#section_2 h2 {
+    width: 100%;
+    margin: 1rem;
+}
+
+#section_2 #main_section_2 {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#section_2 #main_section_2 #solved_problems {
+    width: 60%;
+}
+
+#section_2 #main_section_2 #solved_problems progress {
+    width: 100%;
+}
+
+/* Progress Bar */
+.progress-container {
+    transform: scale(80%);
+    width: 150px;
+    height: 150px;
+}
+
+.progress-circle {
+    fill: none;
+    stroke: #ffa200;
+    stroke-width: 3;
+    stroke-dasharray: 440;
+    /* 2 * π * radius (150) */
+    stroke-dashoffset: 440;
+    animation: fill 3s ease forwards;
+}
+
+@keyframes fill {
+    0% {
+        stroke-dashoffset: 440;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.progress-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+table {
+    margin: 2rem auto;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+}
+
+thead {
+    color: rgb(108, 108, 108);
+    font-size: 1.1rem;
+    font-weight: 400;
+    border-bottom: 1px solid rgb(108, 108, 108);
+}
+
+td,
+th {
+    color: white;
+    border: 1px solid #27272a;
+    text-align: left;
+    padding: 8px;
+}
+
+
+tr:nth-child(even) {
+    background-color: gray;
+}

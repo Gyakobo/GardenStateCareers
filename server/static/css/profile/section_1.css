@@ -1,0 +1,55 @@
+#section_1 {
+    float: left;
+    display: inline-block;
+    width: 19.5rem;
+    height: 50vh;
+    border-radius: 25px;
+    background-color: #27272a;
+}
+
+#section_1 #section_1_top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#section_1 #profile_pic {
+    width: 30%;
+}
+
+#section_1_top h3 {
+    color: white;
+    font-size: 1.4rem;
+    float: right;
+    width: 10rem;
+}
+
+#section_1_middle h2 {
+    margin: 1.3rem;
+    color: white;
+    font-size: 1.2rem;
+    float: left;
+    width: 100%;
+}
+
+#section_1_middle .language_div p:first-child {
+    font-size: 0.8rem;
+    background-color: #6b7280;
+    border-radius: 15px;
+    padding: 0.4rem;
+    color: white;
+}
+
+#section_1_middle .language_div {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0.5rem auto;
+}
+
+#section_1_middle {
+    margin-bottom: 1rem;
+}

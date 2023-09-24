@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile/section_1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile/section_2.css') }}">
+</head>
+
+<body>
+    <section id="section_1">
+        <div id="section_1_top">
+            <div id="profile_pic">
+                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/zthozvfn.json" trigger="loop" delay="2000"
+                    colors="primary:#b26836,secondary:#4bb3fd,tertiary:#f9c9c0,quaternary:#ebe6ef" state="hover-glance"
+                    style="width:150px;height:150px">
+                </lord-icon>
+            </div>
+
+            <div>
+                <h3>Andrew Gyakobo</h3>
+                <br>
+                <p>Rank #14144</p>
+            </div>
+        </div>
+
+        <div class="hl"></div>
+
+        <div id="section_1_middle">
+            <h2>Languages</h2>
+            <div class="language_div">
+                <p>Python</p>
+                <p>0 problems solved</p>
+            </div>
+
+            <div class="language_div">
+                <p>C/C++</p>
+                <p>0 problems solved</p>
+            </div>
+
+            <div class="language_div">
+                <p>Java</p>
+                <p>0 problems solved</p>
+            </div>
+        </div>
+
+        <div class="hl"></div>
+
+        <!--<div id="section_1_bottom">
+        </div>-->
+    </section>
+
+    <section id="section_2">
+        <h2>Solved Problems</h2>
+
+        <div id="main_section_2">
+            <div class="progress-container">
+                <svg class="progress-circle">
+                    <circle cx="75" cy="75" r="70">50%</circle>
+                </svg>
+                <!--<div class="progress-text">50%</div>-->
+            </div>
+
+            <div id="solved_problems">
+                <p>Easy</p>
+                <progress value="75" min="0" max="100">75%</progress>
+                <p>Medium</p>
+                <progress value="26" min="0" max="100">26%</progress>
+                <p>Difficult</p>
+                <progress value="67" min="0" max="100">67%</progress>
+            </div>
+        </div>
+
+        <div class="hl" style="margin-top: 1rem;"></div>
+
+        <table cellspacing="0">
+            <thead>
+                <td>Status</td>
+                <td>Title</td>
+                <td>Difficulty</td>
+                <td>Acceptance</td>
+            </thead>
+            <tr>
+                <td>&#9733;</td>
+                <td>Two Sum</td>
+                <td>Easy</td>
+                <td>45%</td>
+            </tr>
+            <tr>
+                <td>&#9733;</td>
+                <td>Two Sum</td>
+                <td>Easy</td>
+                <td>45%</td>
+            </tr>
+            <tr>
+                <td>&#9733;</td>
+                <td>Three Sum</td>
+                <td>Easy</td>
+                <td>45%</td>
+            </tr>
+            <tr>
+                <td>&#9733;</td>
+                <td>Three Sum</td>
+                <td>Easy</td>
+                <td>45%</td>
+            </tr>
+        </table>
+
+    </section>
+
+</body>
+
+</html>

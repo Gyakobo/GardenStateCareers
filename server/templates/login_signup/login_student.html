@@ -12,7 +12,7 @@
 <body>
     <div id="error"></div>
 
-    <form id="registration-form" action="/register" method="POST">
+    <form id="registration-form" action="/register_user" method="POST">
         <input type="file" name="profilePicture" id="profilePictureInput" accept="image/*" style="display: none;">
         <label for="profilePictureInput" id="profilePictureLabel" style="cursor: pointer;">Choose an image</label>
         <br>
@@ -46,11 +46,11 @@
         <label for="no_gender">Prefer not to say</label><br><br>
 
         <label>Location
-            <input type="text" name="location" />
+            <input type="text" name="location" required />
         </label>
 
         <label>University
-            <input type="text" name="location" />
+            <input type="text" name="university" required />
         </label>
 
         <label>Major
@@ -62,19 +62,19 @@
         </label>
 
         <label style="width: 1rem;" for="start">Start date:</label>
-        <input type="date" id="uni_start_date" name="trip-start" min="2018-01-01" max="2040-12-31" required />
+        <input type="date" id="uni_start_date" name="start_date" min="2018-01-01" max="2040-12-31" required />
 
         <label style="width: 1rem;" for="start">End date:</label>
-        <input type="date" id="uni_end_date" name="trip-start" min="2018-01-01" max="2040-12-31" required />
+        <input type="date" id="uni_end_date" name="end_date" min="2018-01-01" max="2040-12-31" required />
         <br>
         <br>
 
         <label>Email
-            <input type="email" name="email" />
+            <input type="email" name="email" required />
         </label>
 
         <label>Phone Number
-            <input type="number" name="email" />
+            <input type="number" name="phone_number" required />
         </label>
 
 
