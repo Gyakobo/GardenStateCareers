@@ -1,5 +1,6 @@
 #section_2 {
     display: inline-block;
+    float: left;
     width: 28rem;
     /*height: 15rem;*/
     padding-top: 1rem;
@@ -7,6 +8,59 @@
     border-radius: 25px;
     background-color: #27272a;
     margin-left: 1.4rem
+}
+
+#section_3 {
+    display: inline-block;
+    float: left;
+    width: 35rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    border-radius: 25px;
+    background-color: #27272a;
+    margin-left: 1.4rem
+}
+
+#section_3 h1 {
+    color: rgb(219, 219, 219);
+    width: 100%;
+    margin: 1rem;
+    font-size: 2.5rem;
+}
+
+
+#prob_example_1,
+#prob_example_2,
+#prob_example_3 {
+    margin: 0 1rem;
+    color: rgb(255, 191, 71);
+    font-size: 1.1rem;
+}
+
+#prob_input {
+    width: 100%;
+    margin: 1rem;
+    margin: 0 1rem;
+    color: rgb(255, 71, 71);
+    font-size: 1.2rem;
+}
+
+#prob_output {
+    width: 100%;
+    margin: 1rem;
+    margin: 0 1rem;
+    color: rgb(0, 172, 23);
+    font-size: 1.2rem;
+}
+
+
+#prob_example_1 {
+    margin-top: 1rem;
+}
+
+#prob_desc {
+    color: rgb(120, 120, 120);
+    margin: 0 1rem;
 }
 
 #section_2 h2 {
@@ -84,7 +138,35 @@ th {
     padding: 8px;
 }
 
-
 tr:nth-child(even) {
     background-color: gray;
+}
+
+#select_leetcode {
+    margin: 2rem auto;
+    margin-left: 3rem;
+    width: 70%;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#select_leetcode:hover {
+    border: 1px solid #cccccc74;
+}
+
+input[type=submit] {
+    background-color: #fc189d;
+    border: none;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 7px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #53005a;
 }

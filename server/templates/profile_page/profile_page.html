@@ -77,41 +77,94 @@
 
         <div class="hl" style="margin-top: 1rem;"></div>
 
-        <table cellspacing="0">
-            <thead>
-                <td>Status</td>
-                <td>Title</td>
-                <td>Difficulty</td>
-                <td>Acceptance</td>
-            </thead>
-            <tr>
-                <td>&#9733;</td>
-                <td>Two Sum</td>
-                <td>Easy</td>
-                <td>45%</td>
-            </tr>
-            <tr>
-                <td>&#9733;</td>
-                <td>Two Sum</td>
-                <td>Easy</td>
-                <td>45%</td>
-            </tr>
-            <tr>
-                <td>&#9733;</td>
-                <td>Three Sum</td>
-                <td>Easy</td>
-                <td>45%</td>
-            </tr>
-            <tr>
-                <td>&#9733;</td>
-                <td>Three Sum</td>
-                <td>Easy</td>
-                <td>45%</td>
-            </tr>
-        </table>
+        <form action="/get_leetcode_question" method="POST">
+            <select name="select_leetcode" id="select_leetcode" onchange="get_leetcode_question(event)">
+                <option selected disabled hidden>Select Question</option>
+                <option value="2Sum">Two Sum</option>
+                <option value="long_sub">Longest Substring Without Repeating Characters</option>
+                <option value="long_palin">Longest Palindromic Substring</option>
+                <option value="water_container">Container With Most Water</option>
+                <option value="3SUM">3Sum</option>
+                <option value="remove_nth">Remove Nth Node From End of List</option>
+                <option value="valid_par">Valid Parentheses</option>
+                <option value="merge_2">Merge Two Sorted Lists</option>
+                <option value="merge_k">Merge k Sorted Lists</option>
+                <option value="search_rot_array">Search in Rotated Sorted Array</option>
+                <option value="comb_sum">Combination Sum</option>
+                <option value="rot_image">Rotate Image</option>
+                <option value="group_anag">Group Anagrams</option>
+                <option value="max_sub">Maximum Subarray</option>
+                <option value="spi_matr">Spiral Matrix</option>
+                <option value="jump_game">Jump Game</option>
+                <option value="merge_interv">Merge Intervals</option>
+                <option value="insert_interv">Insert Interval</option>
+                <option value="uniq_paths">Unique Paths</option>
+                <option value="climb_stairs">Climbing Stairs</option>
+                <option value="set_matr_zeroes">Set Matrix Zeroes</option>
+                <option value="min_win_sub">Minimum Window Substring</option>
+            </select>
+        </form>
+
+    </section>
+
+    <section id="section_3">
+        <h1 id="prob_heading"></h1>
+
+        <div id="prob_desc"></div>
+        <div id="prob_example_1"></div>
+        <div id="prob_example_2"></div>
+        <div id="prob_example_3"></div>
+
+        <div id="prob_input"></div>
+        <div id="prob_output"></div>
+
+        <form action="" method="POST">
+            <input type="submit" name="submit">
+        </form>
 
     </section>
 
 </body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<script>
+    const get_leetcode_question = (event) => {
+        //const select_element = event.target;
+        const leetcode_question = event.target.value;
+
+        const prob_heading = document.getElementById("prob_heading");
+        const prob_desc = document.getElementById("prob_desc");
+        const prob_example_1 = document.getElementById("prob_example_1");
+        const prob_example_2 = document.getElementById("prob_example_2");
+        const prob_example_3 = document.getElementById("prob_example_3");
+
+        const input = document.getElementById("prob_input");
+        const output = document.getElementById("prob_output");
+
+        console.log("leet: " + leetcode_question);
+
+        axios.post('/get_leetcode_question', {
+            leetcode: leetcode_question
+        })
+            .then((response) => {
+                var leet = response.data.leetcode;
+                console.log(leet);
+                prob_heading.innerHTML = leet.name;
+                prob_desc.innerHTML = leet.description;
+                prob_example_1.innerHTML = leet.example[0];
+                prob_example_2.innerHTML = leet.example[1];
+                prob_example_3.innerHTML = leet.example[2];
+
+                input.innerHTML = "Given " + String(leet.parameters);
+                output.innerHTML = "Ans " + String(leet.answer);
+            }, (error) => {
+                console.log("Error");
+            });
+
+    }
+
+
+</script>
 
 </html>

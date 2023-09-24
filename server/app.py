@@ -25,6 +25,14 @@ client_type = ""
 def main_page():
     return render_template("main/main.html") 
 
+@app.route("/get_leetcode_question", methods=["POST"])
+def get_leetcode_question():
+    print("Entered")
+    if request.method == "POST":
+        leet_name = request.get_json()["leetcode"]
+        print(leetcode[leet_name])
+        return jsonify({"leetcode": leetcode[leet_name]})
+
 @app.route("/validate-user", methods=["POST"])
 def validate_user():
     if request.method == "POST":

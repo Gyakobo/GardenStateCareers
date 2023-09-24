@@ -1,5 +1,5 @@
 const checkIfUserExists = (event) => {
-    const emailFormElement = event.target;
+    //const emailFormElement = event.target;
     const email = event.target.value;
 
     axios.post('/validate-user', {
