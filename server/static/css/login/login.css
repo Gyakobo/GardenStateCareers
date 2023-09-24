@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #444444;
+    font-size: 16px;
+    background-color: #F5F5F5;
+}
+
+#profilePictureImage {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+}
+
+#boiler_plate_profile {
+    margin-bottom: 1rem;
+}
+
+#registration-form {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 25rem;
+    margin: 6rem auto 3rem auto;
+}
+
+#registration-form label {
+    font-size: 0.8rem;
+}
+
+#registration-form input {
+    width: 100%;
+}
+
+input[type=radio] {
+    padding: 0;
+    margin: 0;
+}
+
+#registration-form #male,
+#registration-form #female,
+#registration-form #no_gender {
+    width: 1rem;
+}
+
+input[type=text],
+input[type=email],
+input[type=number],
+input[type=date],
+#major {
+    width: 15rem;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=text]:hover,
+input[type=email]:hover,
+input[type=number]:hover,
+input[type=date]:hover,
+#major:hover {
+    border: 1px solid #cccccc74;
+}
+
+#submit_button {
+    background-color: #fc189d;
+    border: none;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 7px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#submit_button:hover {
+    background-color: #8618fc;
+}
+
+#submit_button:after {
+    background-color: #8618fc17;
+}

@@ -16,7 +16,7 @@ app = Flask(__name__)
 # MAIN PAGE
 #######################
 
-user = ""
+landing_user = ""
 
 # Main page 
 @app.route("/")
@@ -31,10 +31,14 @@ def validate_user():
             return jsonify({"user_exist": "true"})
         else:
             return jsonify({"user_exist": "false"})
-            # users.append(email_address)
 
 @app.route("/user_or_company", methods=["POST"])
 def user_or_company():
+    if request.method == 'POST':
+        landing_user = request.form.get('email')
+
+    print(landing_user)
+
     return render_template("login_signup/student_or_company.html") 
 
 # Login page 
@@ -42,15 +46,18 @@ def user_or_company():
 def login_page():
     if request.method == 'POST':
         if request.form.get('Student') == 'Student':
-            # pass
-            print("Student")
+            return render_template("login_signup/login_student.html") 
         elif  request.form.get('Recruiter') == 'Recruiter':
-            # pass # do something else
-            print("Recruiter")
+            return render_template("login_signup/login_company.html") 
         else:
-            print("None")
+            return "Smth went wrong..."
 
-    return render_template("login_signup/login.html") 
+@app.route("/register", methods=["POST"])
+def user_register():
+    if request.method == 'POST':
+        pass
+    return "So far so good"
+
 
 
 

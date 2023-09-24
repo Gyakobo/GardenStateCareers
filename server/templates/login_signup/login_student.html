@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden State Careers</title>
+    <!--<script defer src="script.js"></script>-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login/login.css') }}">
+</head>
+
+<body>
+    <div id="error"></div>
+
+    <form id="registration-form" action="/register" method="POST">
+        <input type="file" name="profilePicture" id="profilePictureInput" accept="image/*" style="display: none;">
+        <label for="profilePictureInput" id="profilePictureLabel" style="cursor: pointer;">Choose an image</label>
+        <br>
+
+        <div id="boiler_plate_profile">
+            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+            <lord-icon style="border-radius: 50%; height: 5rem; width: 5rem; background-color: blanchedalmond;"
+                src="https://cdn.lordicon.com/ajkxzzfb.json" trigger="hover" colors="primary:#ffc738,secondary:#4bb3fd"
+                style="width:250px;height:250px">
+            </lord-icon>
+        </div>
+
+        <div id="profilePicturePreview" style="display: none;">
+            <img id="profilePictureImage" src="#" alt="Profile Picture">
+        </div>
+
+        <label>First Name
+            <input type="text" name="firstname" required />
+        </label>
+
+        <label>Last Name
+            <input type="text" name="lastname" required />
+        </label>
+
+        <p style="padding: 0.3rem;">Gender</p>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="no_gender" name="gender" value="no_gender">
+        <label for="no_gender">Prefer not to say</label><br><br>
+
+        <label>Location
+            <input type="text" name="location" />
+        </label>
+
+        <label>University
+            <input type="text" name="location" />
+        </label>
+
+        <label>Major
+            <select style="width: 100%" name="major" id="major">
+                <option value="CS">Computer Science</option>
+                <option value="COE">Computer Engineering</option>
+                <option value="CE">Chemical Engineering</option>
+            </select>
+        </label>
+
+        <label style="width: 1rem;" for="start">Start date:</label>
+        <input type="date" id="uni_start_date" name="trip-start" min="2018-01-01" max="2040-12-31" required />
+
+        <label style="width: 1rem;" for="start">End date:</label>
+        <input type="date" id="uni_end_date" name="trip-start" min="2018-01-01" max="2040-12-31" required />
+        <br>
+        <br>
+
+        <label>Email
+            <input type="email" name="email" />
+        </label>
+
+        <label>Phone Number
+            <input type="number" name="email" />
+        </label>
+
+
+        <label>Resume
+            <input style="margin: 1rem 0;" type="file" name="resume" />
+        </label><br>
+
+        <button id="submit_button" type="submit">Save</button>
+
+    </form>
+</body>
+
+<script src="{{ url_for('static', filename='js/login_signup/script.js') }}"></script>
+<script>
+    const profilePictureInput = document.getElementById('profilePictureInput');
+    const profilePictureLabel = document.getElementById('profilePictureLabel');
+    const profilePicturePreview = document.getElementById('profilePicturePreview');
+    const profilePictureImage = document.getElementById('profilePictureImage');
+
+    const boiler_plate_profile = document.getElementById('boiler_plate_profile');
+
+    profilePictureInput.addEventListener('change', function () {
+        const file = profilePictureInput.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                profilePictureImage.src = e.target.result;
+                profilePicturePreview.style.display = 'block';
+                boiler_plate_profile.style.display = 'none';
+            }
+
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+</html>
