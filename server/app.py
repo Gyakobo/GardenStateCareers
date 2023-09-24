@@ -1,13 +1,15 @@
 import uuid
+from subprocess import Popen, PIPE 
+import subprocess 
 from flask import Flask, request, render_template, jsonify
 from flask_smorest import abort
 from db import stores, items, students, student, recruiter, recruiters
 from leetcode import leetcode
 import os
 import sys
+import tempfile
 from io import StringIO
-
-
+import contextlib
 
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 template_dir = os.path.join(template_dir, 'templates')
@@ -24,6 +26,77 @@ app = Flask(__name__)
 landing_user = ""
 client_type = ""
 
+def execute_cpp(cpp_code):
+    # Get the C++ code from the request JSON data
+    #data = request.get_json()
+    #cpp_code = data.get('code', '')
+
+    #if not cpp_code:
+    #    return jsonify({"error": "No C++ code provided"})
+
+    try:
+        # Create a temporary directory and C++ source file
+        with tempfile.TemporaryDirectory() as temp_dir:
+            cpp_file_path = os.path.join(temp_dir, "user_code.cpp")
+            exe_file_path = os.path.join(temp_dir, "user_code")
+
+            # Write the C++ code to the source file
+            with open(cpp_file_path, 'w') as cpp_file:
+                cpp_file.write(cpp_code)
+
+            # Compile the C++ code
+            compile_command = f"g++ -o {exe_file_path} {cpp_file_path}"
+            compile_result = subprocess.run(compile_command, shell=True, text=True, stderr=subprocess.PIPE)
+
+            if compile_result.returncode != 0:
+                return jsonify({"error": compile_result.stderr})
+
+            # Execute the compiled code
+            execution_result = subprocess.run(exe_file_path, shell=True, text=True, stdout=subprocess.PIPE)
+
+            return jsonify({"output": execution_result.stdout})
+
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
+def execute_python(python_code :str):
+    # Get the Python code from the request JSON data
+    # data = request.get_json()
+    # python_code = data.get('code', '')
+
+    try:
+        # Create a dictionary to hold the output
+        exec_globals = {}
+        exec_locals = {}
+        exec(python_code, exec_globals, exec_locals)
+
+        # Return the result as JSON
+        return jsonify({"output_local": exec_locals})
+
+    except Exception as e:
+        # Handle errors if the Python code execution fails
+        return jsonify({"error": str(e)})
+
+def execute_command(command : str):
+    # Specify the command you want to execute
+
+    try:
+        # Run the command and capture the output
+        result = subprocess.run(command, shell=True, capture_output=True, text=True, check=True)
+
+        # Create a dictionary to hold the command output
+        output_dict = {
+            "command": command,
+            "output": result.stdout
+        }
+        # Return the output as JSON
+        return jsonify(output_dict)
+
+    except subprocess.CalledProcessError as e:
+        # Handle errors if the command fails
+        return jsonify({"error": str(e)})
+
+
 # Main page 
 @app.route("/")
 def main_page():
@@ -33,14 +106,10 @@ def main_page():
 def run_leetcode_question():
     if request.method == "POST":
         code = request.form.get('code')
-
-        old_stdout = sys.stdout
-        redirected_output = sys.stdout = StringIO()
-        exec(code)
-        sys.stdout = old_stdout
-
-        # print(exec(code))
-        return jsonify({"ans": exec(redirected_output.getvalue())})
+        return execute_cpp(code)
+        # return execute_command(code)
+        # return execute_python(code)
+        # return jsonify({exec(code)})
 
 @app.route("/get_leetcode_question", methods=["POST"])
 def get_leetcode_question():

@@ -163,7 +163,7 @@ tr:nth-child(even) {
     border: 1px solid #cccccc74;
 }
 
-input[type=submit] {
+button {
     background-color: #fc189d;
     border: none;
     color: #fff;
@@ -174,6 +174,6 @@ input[type=submit] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
+button:hover {
     background-color: #53005a;
 }

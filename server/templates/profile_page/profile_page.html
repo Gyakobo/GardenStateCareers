@@ -120,7 +120,7 @@
 
         <form action="/run_leetcode_question" method="POST">
             <textarea id="code" name="code"></textarea>
-            <input type="submit" name="submit">
+            <button onclick="get_stdout(event)">Run</button>
         </form>
 
     </section>
@@ -130,6 +130,20 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 <script>
+
+    const get_stdout = (event) => {
+        const code = document.getElementById("code");
+
+        axios.post('/run_leetcode_question', {
+            code: code.innerHTML
+        })
+            .then((response) => {
+                console.log(response.data.ans);
+            }, (error) => {
+                console.log("Error");
+            });
+    }
+
     const get_leetcode_question = (event) => {
         //const select_element = event.target;
         const leetcode_question = event.target.value;
