@@ -1,2 +1,5 @@
 stores = {}
 items = {}
+users = {}
+
+

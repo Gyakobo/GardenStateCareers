@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+.no_spaces {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    height: 100vh;
+
+}
+
+p {
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    font-size: 14px;
+}
+
+
+.btn {
+    height: 2rem;
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    font-size: 10px;
+    color: #fff;
+    background-color: #0066CC;
+    padding: 1px 15px;
+    border: 2px solid #0066cc;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 15px;
+    transition: 700ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transition: 1000ms;
+    padding: 1px 30px;
+    transform: translateY(0px);
+    background-color: #fff;
+    color: #0066cc;
+    border: solid 2px #0066cc;
+}
+
+#login_signup {
+    padding: 0.5rem;
+    min-width: 13rem;
+    height: 9rem;
+
+    box-shadow: 1px 1px 3px solid black;
+}
+
+
+#img_section {
+    background-image: url("../../misc/login_page_img.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 31% 69% 23% 77% / 66% 18% 82% 34%;
+    animation-name: shape_change;
+    animation-duration: 22s;
+    animation-timing-function: alternate;
+    animation-iteration-count: infinite;
+
+    width: 15rem;
+    height: 15rem;
+
+    display: block;
+    float: left;
+}
+
+
+#img_section p {
+    margin: 0;
+    padding: 0;
+
+    color: white;
+}
+
+#btn_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#main_section {
+    position: relative;
+    padding: 1.5rem;
+
+    /*background-color: bisque;*/
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+@keyframes shape_change {
+    10% {
+        border-radius: 31% 69% 23% 77% / 66% 18% 82% 34%;
+    }
+
+    50% {
+        border-radius: 56% 44% 44% 56% / 44% 43% 57% 56%;
+    }
+
+    70% {
+        border-radius: 70% 30% 60% 40% / 33% 51% 49% 67%;
+    }
+
+    100% {
+        border-radius: 31% 69% 23% 77% / 66% 18% 82% 34%;
+    }
+}

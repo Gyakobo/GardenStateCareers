@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garden State Careers</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <!--<link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/section_1.css">
     <link rel="stylesheet" href="../css/section_2.css">
-    <link rel="stylesheet" href="../css/section_3.css">
+    <link rel="stylesheet" href="../css/section_3.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main/section_1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main/section_2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main/section_3.css') }}">
 </head>
 
 <body>
     <div id="navbar">
-        <img id="logo" src="../misc/logo.png" />
+        <img id="logo" src="{{ url_for('static', filename='misc/logo.png') }}" />
         <h1 id="nav_name">Garden State Careers</h1>
     </div>
 
@@ -26,9 +30,10 @@
             <p>Looking for a job in New Jersey? Create a professional landing page to showcase your skills and attract
                 employers</p>
 
-            <form id="form" action="/main.html" method="GET">
-                <input id="email" type="email" name="email" placeholder="Enter your Email..." required>
-                <input id="submit_button" type="submit" name="submit">
+            <form name="registration-form" action="/user_or_company" method="POST">
+                <input id="email" type="email" name="email" placeholder="Enter your Email..."
+                    onfocusout="checkIfUserExists(event)" required>
+                <input id="submit_button" type="submit">
             </form>
 
             <div id="hype_bar">
@@ -40,7 +45,7 @@
             </div>
 
             <div id="my_div">
-                <img src="../misc/me_2.jpg">
+                <img src="{{ url_for('static', filename='misc/me_2.jpg') }}" />
                 <p id="quote">"This site should help anyone demonstrate their skillset and even more importantly - find
                     a job."</p>
                 <p id="name">Andrew Gyakobo</p>
@@ -65,7 +70,7 @@
         <div id="section_2_left"></div>
         <div id="section_2_right">
             <h1>Stand out from the competition</h1>
-            <p>JobPage allows you to create a unique landing page that highlights your skills, experience, and
+            <p>GSC allows you to create a unique landing page that highlights your skills, experience, and
                 achievements, helping you stand out from other job seekers.</p>
         </div>
     </section>
@@ -73,5 +78,8 @@
     <!--<h2 id="section_3">Greateness Awaits!</h2>-->
 
 </body>
+
+<script src="{{ url_for('static', filename='js/main/script.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
 </html>

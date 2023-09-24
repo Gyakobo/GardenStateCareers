@@ -117,7 +117,7 @@ input[type=email]:hover {
     padding-top: 14.5rem;
     padding-bottom: 14.5rem;
 
-    background-image: url("../misc/pic1.jpeg");
+    background-image: url("../../misc/pic1.jpeg");
     background-size: cover;
 
     border-radius: 25px 0 0 25px;

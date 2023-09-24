@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garden State Careers</title>
-    <script defer src="script.js"></script>
+    <!--<script defer src="script.js"></script>-->
 </head>
 
 <body>
     <div id="error"></div>
 
-    <form id="form" action="/main.html" method="GET">
+    <form id="form" action="" method="GET">
         <div>
             <label for="name">Name: </label>
             <input id="name" name="name" type="text" required>
@@ -25,5 +25,7 @@
         <button type="submit">Submit</button>
     </form>
 </body>
+
+<script src="{{ url_for('static', filename='js/login_signup/script.js') }}"></script>
 
 </html>

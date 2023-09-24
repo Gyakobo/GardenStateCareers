@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="no_spaces" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_signup/login_page.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_signup/signup_container.css') }}">
+    <!--<link rel="stylesheet" href="css/login_page.css">
+    <link rel="stylesheet" href="css/signup_container.css">-->
+</head>
+
+<body class="no_spaces">
+    <section id="main_section">
+        <section id="img_section"></section>
+
+        <section id="login_signup">
+            <p style="font-size: 1.4rem;">Are you a ...</p>
+
+            <form id="btn_section" action="/login_or_signup" method="POST">
+                <input style="background-color:  orange;" name="Recruiter" value="Recruiter" type="submit" class="btn">
+                <p>or</p>
+                <input name="Student" value="Student" type="submit" class="btn">
+            </form>
+        </section>
+
+    </section>
+
+</body>
+
+</html>
